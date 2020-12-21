@@ -14,6 +14,7 @@ public class SpeechBubbleMaker : MonoBehaviour
     int strIndex = 0;
     int count = 0;
     bool randspeachactive = true;
+    bool pause = false;
     IDisposable randspeach = null;
 
 
@@ -34,6 +35,7 @@ public class SpeechBubbleMaker : MonoBehaviour
         StartSpeak();
 
     }
+
     public SpeechBubble Generate(int index, string _text, float time = 3,int mode = 0)
     {
         return Generate(bubblePlace[index][0], bubblePlace[index][1], _text,time, bubblePlace[index][4] == -1?mode:(int)bubblePlace[index][4], bubblePlace[index][2] == 1, bubblePlace[index][3]==1);
@@ -47,10 +49,31 @@ public class SpeechBubbleMaker : MonoBehaviour
         ui_clone.Speak(_text, time);
         return ui_clone;
     }
+    public void BreakAllBubbles()
+    {
+        var bubbles = GameObject.FindObjectsOfType<SpeechBubble>();
+        var menubabble = GameObject.Find("MenuBubble").GetComponent<SpeechBubble>();
+        foreach(var _b in bubbles)
+        {
+            if (menubabble == _b)
+            {
+                continue;
+            }
+            _b.Break();
+        }
+    }
     public void StopSpeak()
     {
         randspeachactive = false;
-        //ToDo: Menu以外を消すか非表示にする
+        BreakAllBubbles();
+    }
+    public void PauseSpeak(bool _pause)
+    {
+        pause = _pause;
+        if (pause)
+        {
+            BreakAllBubbles();
+        }
     }
     public void StartSpeak()
     {
@@ -68,7 +91,10 @@ public class SpeechBubbleMaker : MonoBehaviour
                     randspeach = null;
                     return;
                 }
-                RandomSpeak();
+                if (!pause)
+                {
+                    RandomSpeak();
+                }
 
             }).AddTo(this);
         }

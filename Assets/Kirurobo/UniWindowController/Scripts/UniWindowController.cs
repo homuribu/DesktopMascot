@@ -212,6 +212,7 @@ namespace Kirurobo
         /// <summary>
         /// カメラのインスタンス
         /// </summary>
+        [SerializeField]
         private Camera currentCamera;
 
         /// <summary>

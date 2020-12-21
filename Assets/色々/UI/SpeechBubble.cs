@@ -29,7 +29,7 @@ public class SpeechBubble : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void Start()
+    protected void Start()
     {
         frameCnt = UnityEngine.Random.Range(0, 10000); 
         Init();
@@ -194,9 +194,17 @@ public class SpeechBubble : MonoBehaviour, IPointerClickHandler
     {
         node = _node;
     }
-    public void OnPointerClick(PointerEventData data)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        node.OnClick();
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            var ts = GameObject.FindObjectOfType<TranslucentSystem>();
+            ts.isTranslucent = !ts.isTranslucent;
+        }
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            node.OnClick();
+        }
     }
 
 }

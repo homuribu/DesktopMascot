@@ -1,23 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using System;
 
-public class MenuBubble : MonoBehaviour
+public class MenuBubble : SpeechBubble
 {
-
-    private SpeechBubbleMaker maker;
     // Start is called before the first frame update
     void Start()
     {
-        maker = GameObject.FindObjectOfType<SpeechBubbleMaker>();
+        base.Start();
+        Observable.Interval(TimeSpan.FromSeconds(0.5)).Subscribe(_ =>{
+            this.ChangeText(DateTime.Now.ToShortTimeString());
+                   }).AddTo(this);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-    void OnClick()
-    {
     }
 }

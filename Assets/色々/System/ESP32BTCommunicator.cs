@@ -17,6 +17,7 @@ public class ESP32BTCommunicator : MonoBehaviour
 
     void Start()
     {
+        /*
         this.serial = new SerialPort(portName, baurate, Parity.None, 8, StopBits.One);
 
         try
@@ -29,6 +30,7 @@ public class ESP32BTCommunicator : MonoBehaviour
             Debug.Log(e);
             Debug.Log("can not open serial port");
         }
+        */
     }
 
     public void ReadData()

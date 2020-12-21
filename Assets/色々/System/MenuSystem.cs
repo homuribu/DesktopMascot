@@ -31,6 +31,7 @@ public class MenuSystem : MonoBehaviour
         public string name;
         public string description;
     }
+    [SerializeField] private CanvasGroup canvasGroup;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,15 +46,34 @@ public class MenuSystem : MonoBehaviour
         });
         setting.AddChild(set_transparent);
 
+        bool on = uniwinc.isTopmost;
         Node set_topmost = new Node("Topmost:ON ", 1);
-        bool on = true;
+
+        setting.AddCallback(() =>
+        {
+            on = uniwinc.isTopmost;
+            set_topmost.Text = on ? "Topmost:ON" : "Topmost:OFF";
+
+        });
         set_topmost.AddCallback(() =>
         {
             on = !on;
             set_topmost.Text = on ? "Topmost:ON" : "Topmost:OFF";
             uniwinc.isTopmost = on;
         });
+
         setting.AddChild(set_topmost);
+
+        Node set_deactivate= new Node("半透明:OFF", 1);
+        bool on2 = false;
+        set_deactivate.AddCallback(() =>
+        {
+            on2= !on2;
+            canvasGroup.alpha = on2 ? 0.5f : 1.0f;
+            set_deactivate.Text = on2 ? "半透明:ON" : "半透明:OFF";
+
+        });
+        setting.AddChild(set_deactivate);
 
         Node sensor = new Node("Sensor", 1);
         ESP32Communicator e32c = new ESP32Communicator();
@@ -65,15 +85,19 @@ public class MenuSystem : MonoBehaviour
         sensor.AddChild(humidity);
         sensor.AddChild(temperature);
         sensor.AddChild(pressure);
+        //ESP32Communicator e32c = new ESP32Communicator();
 
         sensor.AddCallback(() =>
         {
             /*
-            var _temperature = e32c.GetTemperature();
-            _temperature.Subscribe(x => temperature.Text = x + "℃");
-
-            var _humidity = e32c.GetHumidity();
-            _humidity.Subscribe(x => humidity.Text = x + "％");
+            var _airdata = e32c.GetAirData();
+            _airdata.Subscribe(_data =>
+            {
+                AirData data = JsonUtility.FromJson<AirData>(_data);
+                temperature.Text = data.temp+"℃";
+                humidity.Text = data.hum +"％";
+                pressure.Text = data.press+ "Pa";
+            });
             */
             var _airdata = e32c.GetAirData();
             _airdata.Subscribe(_data =>

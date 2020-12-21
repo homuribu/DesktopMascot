@@ -5,17 +5,35 @@ using System;
 
 public class MenuNode : Node
 {
+    SpeechBubbleMaker maker = null;
+    TranslucentSystem translucentSystem = null;
     public MenuNode():base("Menu", 0)
     {
     }
-    bool menu_called = false;
+    public bool menu_called = false;
     //このNodeをクリックした時点で呼ばれるもの
     public override void  OnClick()
     {
-        menu_called = !menu_called;
+        if(maker == null)
+        {
+            maker = GameObject.FindObjectOfType<SpeechBubbleMaker>();
+        }
+        if(translucentSystem== null)
+        {
+            translucentSystem = GameObject.FindObjectOfType<TranslucentSystem>();
+        }
+        if (translucentSystem.isTranslucent)
+        {
+            menu_called = false;
+        }
+        else
+        {
+            menu_called = !menu_called;
+        }
+        maker.BreakAllBubbles();
+        translucentSystem.isTranslucent = false;
         if (menu_called)
         {
-            BreakAllBubbles();
             foreach(Action _func in callback)
             {
                 _func();
@@ -28,10 +46,8 @@ public class MenuNode : Node
         }
         else
         {
-            BreakAllBubbles();
             var maker = GameObject.FindObjectOfType<SpeechBubbleMaker>();
             maker.StartSpeak();
-
         }
     }
     public override void OnBreak()
@@ -49,17 +65,4 @@ public class MenuNode : Node
         speechBubble.SetNode(this);
     }
 
-    //クソ実装、イベントを勉強する気になったら書き換える
-    public void BreakAllBubbles()
-    {
-        var bubbles = GameObject.FindObjectsOfType<SpeechBubble>();
-        foreach(var _b in bubbles)
-        {
-            if (speechBubble == _b)
-            {
-                continue;
-            }
-            _b.Break();
-        }
-    }
 }

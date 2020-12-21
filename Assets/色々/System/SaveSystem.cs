@@ -10,6 +10,7 @@ public class SaveSystem : MonoBehaviour
 {
     // Start is called before the first frame update
     public SaveData saveData;
+    public SaveData originSaveData;
     [SerializeField]
     private GameObject obj;
     DataBank bank = null;
@@ -18,30 +19,32 @@ public class SaveSystem : MonoBehaviour
 
     void Start()
     {
-        uniwinc = GameObject.FindObjectOfType<UniWindowController>();
-        
     }
     void Update()
     {
         if (uniwinc == null)
         {
             uniwinc = GameObject.FindObjectOfType<UniWindowController>();
+            UpdateData(originSaveData);
+            Load();
+            SetWindow(saveData);
+            enabled = false;
         }
-        Load();
-        SetWindow();
-        enabled = false;
     }
 
-    void Save()
+    void UpdateData(SaveData data)
     {
-        saveData.x = uniwinc.windowPosition[0];
-        saveData.y = uniwinc.windowPosition[1];
-        saveData.width = uniwinc.windowSize[0];
-        saveData.height = uniwinc.windowSize[1];
-        saveData.isTransparent= uniwinc.isTransparent;
-        saveData.isTopmost = uniwinc.isTopmost;
-        bank.Store("saveData", saveData);
-        //Debug.Log(saveData);
+        data.x = uniwinc.windowPosition[0];
+        data.y = uniwinc.windowPosition[1];
+        data.width = uniwinc.windowSize[0];
+        data.height = uniwinc.windowSize[1];
+        data.isTransparent= uniwinc.isTransparent;
+        data.isTopmost = uniwinc.isTopmost;
+    }
+    void Store(SaveData data)
+    {
+        bank.Store("saveData", data);
+        //Debug.Log(data);
         bank.Save("saveData");
     }
     void Load()
@@ -55,58 +58,45 @@ public class SaveSystem : MonoBehaviour
             saveData = bank.Get<SaveData>("saveData");
             if (saveData.width == 0 || saveData.height == 0)
             {
-                Init();
+                Init(saveData);
+                Store(saveData);
             }
         }
         else
         {
-            Init();
+            Init(saveData);
+            Store(saveData);
         }
 
-        bank.Store("saveData", saveData);
-        //Debug.Log(saveData);
-
-        //Debug.Log("x: "+ saveData.x+ "y: "+ saveData.y+ "w: "+ saveData.width+ "h: "+ saveData.height);
-    }
-    void Init()
-    {
-        saveData = new SaveData();
-        saveData.x = 500;
-        saveData.y = 500;
-        saveData.width = 1000;
-        saveData.height= 500;
-        saveData.isTransparent = true;
-        saveData.isTopmost = true;
     }
 
-    /*
-    private void OnApplicationFocus(bool focus)
+    void Init(SaveData data)
     {
-
-        if (focus)
-        {
-            if (uniwinc == null)
-            {
-                uniwinc = GameObject.FindObjectOfType<UniWindowController>();
-            }
-            Load();
-            SetWindow();
-        }
+        data = new SaveData();
+        data.x = 500;
+        data.y = 500;
+        data.width = 1000;
+        data.height= 500;
+        data.isTransparent = true;
+        data.isTopmost = true;
     }
-    */
 
-    void SetWindow()
+    void SetWindow(SaveData data)
     {
-        uniwinc.windowSize = new Vector2  (saveData.width, saveData.height );
-        uniwinc.windowPosition = new Vector2 ( saveData.x, saveData.y);
-        uniwinc.isTransparent = saveData.isTransparent;
-        uniwinc.isTopmost= saveData.isTopmost;
-        //Debug.Log("SetWindow x: "+ saveData.x+ "y: "+ saveData.y+ "w: "+ saveData.width+ "h: "+ saveData.height);
+        uniwinc.windowSize = new Vector2  (data.width, data.height );
+        uniwinc.windowPosition = new Vector2 ( data.x, data.y);
+        uniwinc.isTransparent = data.isTransparent;
+        uniwinc.isTopmost= data.isTopmost;
+        Debug.Log("SetWindow x: "+ data.x+ "y: "+ data.y+ "w: "+ data.width+ "h: "+ data.height);
     }
 
     void OnApplicationQuit()
     {
-        Save();
-        //Debug.Log("OnQuit x: "+ saveData.x+ "y: "+ saveData.y+ "w: "+ saveData.width+ "h: "+ saveData.height);
+        UpdateData(saveData);
+        Store(saveData);
+        Debug.Log("OnQuit x: "+ saveData.x+ "y: "+ saveData.y+ "w: "+ saveData.width+ "h: "+ saveData.height);
+        originSaveData.isTopmost = false;
+        SetWindow(originSaveData);
+
     }
 }
