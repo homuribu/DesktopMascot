@@ -41,14 +41,11 @@ public class SpeechBubble : MonoBehaviour, IPointerClickHandler
     {
 	    float _amplitude = 0.2f; // 振幅
         frameCnt += 1;
-        if (10000 <= frameCnt)
-        {
-            frameCnt = 0;
-        }
         if (0 == frameCnt % 2)
         {
+            frameCnt = frameCnt % 200;
             // 上下に振動させる（ふわふわを表現）
-            float posYSin = Mathf.Sin(2.0f * Mathf.PI * (float)(frameCnt % 200) / (200.0f - 1.0f));
+            float posYSin = Mathf.Sin(2.0f * Mathf.PI * (float)frameCnt / (200.0f - 1.0f));
             //Debug.Log(posYSin.ToString() +" x " + _amplitude.ToString()+ " = " +(_amplitude * posYSin).ToString());
             iTween.MoveAdd(this.gameObject, new Vector3(0, _amplitude * posYSin, 0), 0.0f);
         }

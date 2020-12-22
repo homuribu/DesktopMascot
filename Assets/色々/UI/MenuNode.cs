@@ -11,7 +11,7 @@ public class MenuNode : Node
     {
     }
     public bool menu_called = false;
-    //このNodeをクリックした時点で呼ばれるもの
+    //このNodeを左クリックした時点で呼ばれるもの
     public override void  OnClick()
     {
         if(maker == null)
@@ -24,7 +24,7 @@ public class MenuNode : Node
         }
         if (translucentSystem.isTranslucent)
         {
-            menu_called = false;
+            menu_called = true;
         }
         else
         {

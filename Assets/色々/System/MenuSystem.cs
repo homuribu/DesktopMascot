@@ -32,9 +32,11 @@ public class MenuSystem : MonoBehaviour
         public string description;
     }
     [SerializeField] private CanvasGroup canvasGroup;
+    private SocketClient socketClient;
     // Start is called before the first frame update
     void Start()
     {
+        socketClient = new SocketClient();
         uniwinc = GameObject.FindObjectOfType<UniWindowController>();
         Node root = new MenuNode();
         Node setting = new Node("Setting", 1);
@@ -64,11 +66,11 @@ public class MenuSystem : MonoBehaviour
 
         setting.AddChild(set_topmost);
 
-        Node set_deactivate= new Node("半透明:OFF", 1);
+        Node set_deactivate = new Node("半透明:OFF", 1);
         bool on2 = false;
         set_deactivate.AddCallback(() =>
         {
-            on2= !on2;
+            on2 = !on2;
             canvasGroup.alpha = on2 ? 0.5f : 1.0f;
             set_deactivate.Text = on2 ? "半透明:ON" : "半透明:OFF";
 
@@ -103,9 +105,9 @@ public class MenuSystem : MonoBehaviour
             _airdata.Subscribe(_data =>
             {
                 AirData data = JsonUtility.FromJson<AirData>(_data);
-                temperature.Text = data.temp+"℃";
-                humidity.Text = data.hum +"％";
-                pressure.Text = data.press+ "Pa";
+                temperature.Text = data.temp + "℃";
+                humidity.Text = data.hum + "％";
+                pressure.Text = data.press + "Pa";
             });
 
         });
@@ -120,33 +122,30 @@ public class MenuSystem : MonoBehaviour
         IDisposable clock_update = null;
         clock.AddCallback(() =>
         {
-            clock_update = Observable.Interval(TimeSpan.FromSeconds(0.2)).Subscribe(_ =>
+            clock_update = Observable.Interval(TimeSpan.FromSeconds(0.1)).Subscribe(_ =>
             {
-                /*
-                if (!randspeachactive)
-                {
-                    //自殺
-
-                    randspeach?.Dispose();
-                    randspeach = null;
-                    return;
-                }
-                */
                 if (clock_display.speechBubble == null)
                 {
                     clock_update.Dispose();
                     return;
                 }
-                clock_display.Text = DateTime.Now.ToShortTimeString();
-                //clock_display.Text = DateTime.Now.ToLongTimeString();
-
+                //clock_display.Text = DateTime.Now.ToShortTimeString();
+                clock_display.Text = DateTime.Now.ToLongTimeString();
             }).AddTo(this);
         });
 
         Node tool = new Node("Tool", 1);
         root.AddChild(tool);
-        Node bluetooth = new Node("Bluetooth: ON");
+        Node bluetooth = new Node("Bluetooth\n ON");
         tool.AddChild(bluetooth);
+
+        Node socketClientTest = new Node("SocketClient\nTest");
+        socketClientTest.AddCallback(() =>
+        {
+            socketClient.ConnentionTest();
+
+        });
+        tool.AddChild(socketClientTest);
 
         root.GenerateBubble(2);
     }
@@ -154,6 +153,6 @@ public class MenuSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

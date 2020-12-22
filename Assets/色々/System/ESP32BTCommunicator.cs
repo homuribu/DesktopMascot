@@ -17,20 +17,21 @@ public class ESP32BTCommunicator : MonoBehaviour
 
     void Start()
     {
-        /*
         this.serial = new SerialPort(portName, baurate, Parity.None, 8, StopBits.One);
 
         try
         {
             this.serial.Open();
             Scheduler.ThreadPool.Schedule(() => ReadData()).AddTo(this);
+            Observable.Timer(TimeSpan.FromMilliseconds(100), Scheduler.ThreadPool)
+            .Subscribe();
+
         }
         catch (Exception e)
         {
             Debug.Log(e);
             Debug.Log("can not open serial port");
         }
-        */
     }
 
     public void ReadData()

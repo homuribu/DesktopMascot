@@ -7,7 +7,7 @@ public class TranslucentSystem : MonoBehaviour, IPointerClickHandler
 {
     private bool is_translucent = false;
     [SerializeField]
-    public float translucent_alpha = 0.2f;
+    public float translucent_alpha = 0.7f;
 
     private CanvasGroup canvasGroup;
     private SpeechBubbleMaker maker = null;
