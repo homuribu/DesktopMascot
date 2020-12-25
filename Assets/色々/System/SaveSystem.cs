@@ -38,7 +38,7 @@ public class SaveSystem : MonoBehaviour
         data.y = uniwinc.windowPosition[1];
         data.width = uniwinc.windowSize[0];
         data.height = uniwinc.windowSize[1];
-        data.isTransparent= uniwinc.isTransparent;
+        data.isTransparent = uniwinc.isTransparent;
         data.isTopmost = uniwinc.isTopmost;
     }
     void Store(SaveData data)
@@ -58,43 +58,43 @@ public class SaveSystem : MonoBehaviour
             saveData = bank.Get<SaveData>("saveData");
             if (saveData.width == 0 || saveData.height == 0)
             {
-                Init(saveData);
+                Init();
                 Store(saveData);
             }
         }
         else
         {
-            Init(saveData);
+            Init();
             Store(saveData);
         }
 
     }
 
-    void Init(SaveData data)
+    void Init()
     {
-        data = new SaveData();
-        data.x = 500;
-        data.y = 500;
-        data.width = 1000;
-        data.height= 500;
-        data.isTransparent = true;
-        data.isTopmost = true;
+        saveData = new SaveData();
+        saveData.x = 500;
+        saveData.y = 500;
+        saveData.width = 1000;
+        saveData.height = 500;
+        saveData.isTransparent = true;
+        saveData.isTopmost = true;
     }
 
     void SetWindow(SaveData data)
     {
-        uniwinc.windowSize = new Vector2  (data.width, data.height );
-        uniwinc.windowPosition = new Vector2 ( data.x, data.y);
+        uniwinc.windowSize = new Vector2(data.width, data.height);
+        uniwinc.windowPosition = new Vector2(data.x, data.y);
         uniwinc.isTransparent = data.isTransparent;
-        uniwinc.isTopmost= data.isTopmost;
-        Debug.Log("SetWindow x: "+ data.x+ "y: "+ data.y+ "w: "+ data.width+ "h: "+ data.height);
+        uniwinc.isTopmost = data.isTopmost;
+        Debug.Log("SetWindow x: " + data.x + "y: " + data.y + "w: " + data.width + "h: " + data.height);
     }
 
     void OnApplicationQuit()
     {
         UpdateData(saveData);
         Store(saveData);
-        Debug.Log("OnQuit x: "+ saveData.x+ "y: "+ saveData.y+ "w: "+ saveData.width+ "h: "+ saveData.height);
+        Debug.Log("OnQuit x: " + saveData.x + "y: " + saveData.y + "w: " + saveData.width + "h: " + saveData.height);
         originSaveData.isTopmost = false;
         SetWindow(originSaveData);
 

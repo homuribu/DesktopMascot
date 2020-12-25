@@ -47,7 +47,7 @@ public class MenuNode : Node
         else
         {
             var maker = GameObject.FindObjectOfType<SpeechBubbleMaker>();
-            maker.StartSpeak();
+             maker.StartSpeak();
         }
     }
     public override void OnBreak()

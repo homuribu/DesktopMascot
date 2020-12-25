@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e1894260-31ba-40cc-9e69-9bb933397ced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/色々/Communication/SocketServer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/色々/Communication/SocketServer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Live2D.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Live2D.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/色々/System/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/System/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/色々/Communication/SocketClient.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/Communication/SockerServer.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/Communication/SocketServer.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/System/PythonExecutor.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1m6CqL9A3mAcn3VmAgdIcMpctep" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1894260-31ba-40cc-9e69-9bb933397ced" name="Default Changelist" comment="" />
+      <created>1608804846698</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608804846698</updated>
+      <workItem from="1608804881220" duration="1180000" />
+      <workItem from="1608806585242" duration="6617000" />
+      <workItem from="1608815242490" duration="4286000" />
+      <workItem from="1608819921823" duration="11247000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
