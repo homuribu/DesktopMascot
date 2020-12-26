@@ -4,21 +4,24 @@ using UnityEngine;
 using UniRx;
 using System;
 
-public class MenuBubble : SpeechBubble
+namespace Core.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MenuBubble : SpeechBubble
     {
-        base.Start();
-        Observable.Interval(TimeSpan.FromSeconds(0.5)).Subscribe(_ =>{
-            this.ChangeText(DateTime.Now.ToShortTimeString());
-                   }).AddTo(this);
+        // Start is called before the first frame update
+        new void Start()
+        {
+            base.Start();
+            Observable.Interval(TimeSpan.FromSeconds(0.5)).Subscribe(_ =>{
+                this.ChangeText(DateTime.Now.ToShortTimeString());
+            }).AddTo(this);
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

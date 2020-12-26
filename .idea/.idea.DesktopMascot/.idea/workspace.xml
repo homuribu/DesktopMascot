@@ -2,10 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1894260-31ba-40cc-9e69-9bb933397ced" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Core/System/SpeechBubbleMaker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Core/UI/SwitchNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Core/UI/SwitchNode.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/Communication/SocketClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Communication/SocketClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/Communication/SocketServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Communication/SocketServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/BluetoothCommunicator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/BluetoothCommunicator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/Compressor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/Compressor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/Cryptor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/Cryptor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/DataBank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/DataBank.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/ESP32BTCommunicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Communication/ESP32BTCommunicator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/ESP32BTCommunicator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Communication/ESP32BTCommunicator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/MenuSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/MenuSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/PythonExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/PythonExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/StateSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/StateSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/TranslucentSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/TranslucentSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/TransparentSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/System/TransparentSystem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/ESP32Communicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Communication/ESP32Communicator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/ESP32Communicator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Communication/ESP32Communicator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/MenuBubble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/UI/MenuBubble.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/MenuNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/UI/MenuNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/UI/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/SpeechBubble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/UI/SpeechBubble.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/SpeechBubbleMaker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/SpeechBubbleMaker.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/System/SpeechBubbleMaker.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/iTweenExtention.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/UI/iTweenExtention.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +52,25 @@
       <option value="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" />
       <option value="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" />
       <option value="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/UI/Node.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/UI/MenuNode.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/UI/SpeechBubble.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/UI/SwitchNode.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/UI/MenuBubble.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/SpeechBubbleMaker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/TranslucentSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/StateSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/SaveSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/SaveData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/PythonExecutor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/MenuSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/DataBank.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/Cryptor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/System/Compressor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/Communication/SocketClient.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/Communication/SocketServer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/Communication/ESP32BTCommunicator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Core/Communication/ESP32Communicator.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1m6CqL9A3mAcn3VmAgdIcMpctep" />
@@ -70,7 +117,7 @@
       <workItem from="1608806585242" duration="6617000" />
       <workItem from="1608815242490" duration="4286000" />
       <workItem from="1608819921823" duration="11247000" />
-      <workItem from="1608944305309" duration="1948000" />
+      <workItem from="1608944305309" duration="6821000" />
     </task>
     <servers />
   </component>

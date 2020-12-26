@@ -5,127 +5,130 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 
-public class DataBank
+namespace Core.System
 {
-    static DataBank instance = new DataBank();
-    static Dictionary<string, object> bank = new Dictionary<string, object>();
-
-    static readonly string path = "SaveData";
-    static readonly string fullPath = $"{ Application.persistentDataPath }/{ path }";
-    //static readonly string fullPath = $"{System.AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') }/{ path }";
-    static readonly string extension = "dat";
-
-    public string SavePath
+    public class DataBank
     {
-        get
+        static DataBank instance = new DataBank();
+        static Dictionary<string, object> bank = new Dictionary<string, object>();
+
+        static readonly string path = "SaveData";
+        static readonly string fullPath = $"{ Application.persistentDataPath }/{ path }";
+        //static readonly string fullPath = $"{System.AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\') }/{ path }";
+        static readonly string extension = "dat";
+
+        public string SavePath
         {
-            return fullPath;
-        }
-    }
-
-    DataBank() { }
-
-    public static DataBank Open()
-    {
-        return instance;
-    }
-
-    public bool IsEmpty()
-    {
-        return bank.Count == 0;
-    }
-
-    public bool ExistsKey(string key)
-    {
-        return bank.ContainsKey(key);
-    }
-
-    public void Store(string key, object obj)
-    {
-        bank[key] = obj;
-    }
-
-    public void Clear()
-    {
-        bank.Clear();
-    }
-
-    public void Remove(string key)
-    {
-        bank.Remove(key);
-    }
-
-    public DataType Get<DataType>(string key)
-    {
-        if (ExistsKey(key))
-        {
-            return (DataType)bank[key];
-        }
-        else
-        {
-            return default(DataType);
-        }
-    }
-
-    public void SaveAll()
-    {
-        foreach (string key in bank.Keys)
-        {
-            Save(key);
-        }
-    }
-
-    public bool Save(string key)
-    {
-        if (!ExistsKey(key))
-        {
-            return false;
+            get
+            {
+                return fullPath;
+            }
         }
 
-        string filePath = $"{ fullPath }/{ key }.{ extension }";
+        DataBank() { }
 
-        string json = JsonUtility.ToJson(bank[key]);
-
-        byte[] data = Encoding.UTF8.GetBytes(json);
-        data = Compressor.Compress(data);
-        data = Cryptor.Encrypt(data);
-
-        if (!Directory.Exists(fullPath))
+        public static DataBank Open()
         {
-            Directory.CreateDirectory(fullPath);
+            return instance;
         }
 
-        using (FileStream fileStream = File.Create(filePath))
+        public bool IsEmpty()
         {
-            fileStream.Write(data, 0, data.Length);
+            return bank.Count == 0;
         }
 
-        return true;
-    }
-
-    public bool Load<DataType>(string key)
-    {
-        string filePath = $"{ fullPath }/{ key }.{ extension }";
-
-        if (!File.Exists(filePath))
+        public bool ExistsKey(string key)
         {
-            return false;
+            return bank.ContainsKey(key);
         }
 
-        byte[] data = null;
-        using (FileStream fileStream = File.OpenRead(filePath))
+        public void Store(string key, object obj)
         {
-            data = new byte[fileStream.Length];
-            fileStream.Read(data, 0, data.Length);
+            bank[key] = obj;
         }
 
-        data = Cryptor.Decrypt(data);
-        data = Compressor.Decompress(data);
+        public void Clear()
+        {
+            bank.Clear();
+        }
 
-        string json = Encoding.UTF8.GetString(data);
+        public void Remove(string key)
+        {
+            bank.Remove(key);
+        }
 
-        bank[key] = JsonUtility.FromJson<DataType>(json);
+        public DataType Get<DataType>(string key)
+        {
+            if (ExistsKey(key))
+            {
+                return (DataType)bank[key];
+            }
+            else
+            {
+                return default(DataType);
+            }
+        }
 
-        return true;
+        public void SaveAll()
+        {
+            foreach (string key in bank.Keys)
+            {
+                Save(key);
+            }
+        }
+
+        public bool Save(string key)
+        {
+            if (!ExistsKey(key))
+            {
+                return false;
+            }
+
+            string filePath = $"{ fullPath }/{ key }.{ extension }";
+
+            string json = JsonUtility.ToJson(bank[key]);
+
+            byte[] data = Encoding.UTF8.GetBytes(json);
+            data = Compressor.Compress(data);
+            data = Cryptor.Encrypt(data);
+
+            if (!Directory.Exists(fullPath))
+            {
+                Directory.CreateDirectory(fullPath);
+            }
+
+            using (FileStream fileStream = File.Create(filePath))
+            {
+                fileStream.Write(data, 0, data.Length);
+            }
+
+            return true;
+        }
+
+        public bool Load<DataType>(string key)
+        {
+            string filePath = $"{ fullPath }/{ key }.{ extension }";
+
+            if (!File.Exists(filePath))
+            {
+                return false;
+            }
+
+            byte[] data = null;
+            using (FileStream fileStream = File.OpenRead(filePath))
+            {
+                data = new byte[fileStream.Length];
+                fileStream.Read(data, 0, data.Length);
+            }
+
+            data = Cryptor.Decrypt(data);
+            data = Compressor.Decompress(data);
+
+            string json = Encoding.UTF8.GetString(data);
+
+            bank[key] = JsonUtility.FromJson<DataType>(json);
+
+            return true;
+        }
     }
 }

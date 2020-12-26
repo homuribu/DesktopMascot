@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateSystem : MonoBehaviour
+namespace Core.System
 {
-    GazeController gazeController = null;
-    // Start is called before the first frame update
-    void Start()
+    public class StateSystem : MonoBehaviour
     {
-        gazeController = GameObject.FindObjectOfType<GazeController>();
-    }
+        GazeController gazeController = null;
+        // Start is called before the first frame update
+        void Start()
+        {
+            gazeController = GameObject.FindObjectOfType<GazeController>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
-    void hoge()
-    {
-        gazeController.is_enable = true;
+        }
+        void hoge()
+        {
+            gazeController.is_enable = true;
 
 
+        }
     }
 }

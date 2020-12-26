@@ -5,40 +5,43 @@ using UnityEngine;
 using System.IO;
 using System.IO.Compression;
 
-public class Compressor
+namespace Core.System
 {
-    public static byte[] Compress(byte[] rawData)
+    public class Compressor
     {
-        byte[] result = null;
-
-        using (MemoryStream compressedStream = new MemoryStream())
+        public static byte[] Compress(byte[] rawData)
         {
-            using (GZipStream gZipStream = new GZipStream(compressedStream, CompressionMode.Compress))
+            byte[] result = null;
+
+            using (MemoryStream compressedStream = new MemoryStream())
             {
-                gZipStream.Write(rawData, 0, rawData.Length);
-            }
-            result = compressedStream.ToArray();
-        }
-
-        return result;
-    }
-
-    public static byte[] Decompress(byte[] compressedData)
-    {
-        byte[] result = null;
-
-        using (MemoryStream compressedStream = new MemoryStream(compressedData))
-        {
-            using (MemoryStream decompressedStream = new MemoryStream())
-            {
-                using (GZipStream gZipStream = new GZipStream(compressedStream, CompressionMode.Decompress))
+                using (GZipStream gZipStream = new GZipStream(compressedStream, CompressionMode.Compress))
                 {
-                    gZipStream.CopyTo(decompressedStream);
+                    gZipStream.Write(rawData, 0, rawData.Length);
                 }
-                result = decompressedStream.ToArray();
+                result = compressedStream.ToArray();
             }
+
+            return result;
         }
 
-        return result;
+        public static byte[] Decompress(byte[] compressedData)
+        {
+            byte[] result = null;
+
+            using (MemoryStream compressedStream = new MemoryStream(compressedData))
+            {
+                using (MemoryStream decompressedStream = new MemoryStream())
+                {
+                    using (GZipStream gZipStream = new GZipStream(compressedStream, CompressionMode.Decompress))
+                    {
+                        gZipStream.CopyTo(decompressedStream);
+                    }
+                    result = decompressedStream.ToArray();
+                }
+            }
+
+            return result;
+        }
     }
 }
