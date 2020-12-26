@@ -8,6 +8,38 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Core" t="Include">
+          <e p="Communication" t="Include">
+            <e p="SocketClient.cs" t="Include" />
+            <e p="SocketServer.cs" t="Include" />
+          </e>
+          <e p="Live2DScript" t="Include">
+            <e p="GazeController.cs" t="Include" />
+          </e>
+          <e p="System" t="Include">
+            <e p="BluetoothCommunicator.cs" t="Include" />
+            <e p="Compressor.cs" t="Include" />
+            <e p="Cryptor.cs" t="Include" />
+            <e p="DataBank.cs" t="Include" />
+            <e p="ESP32BTCommunicator.cs" t="Include" />
+            <e p="MenuSystem.cs" t="Include" />
+            <e p="PythonExecutor.cs" t="Include" />
+            <e p="SaveData.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
+            <e p="StateSystem.cs" t="Include" />
+            <e p="TranslucentSystem.cs" t="Include" />
+            <e p="TransparentSystem.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="ESP32Communicator.cs" t="Include" />
+            <e p="iTweenExtention.cs" t="Include" />
+            <e p="MenuBubble.cs" t="Include" />
+            <e p="MenuNode.cs" t="Include" />
+            <e p="Node.cs" t="Include" />
+            <e p="SpeechBubble.cs" t="Include" />
+            <e p="SpeechBubbleMaker.cs" t="Include" />
+          </e>
+        </e>
         <e p="csc.rsp" t="Include" />
         <e p="Idle MoCap" t="Include">
           <e p="DemoScene" t="Include">
@@ -1226,38 +1258,6 @@
               <e p="Utils.cs" t="Include" />
             </e>
             <e p="UniUnlit.asmdef" t="Include" />
-          </e>
-        </e>
-        <e p="色々" t="Include">
-          <e p="Communication" t="Include">
-            <e p="SocketClient.cs" t="Include" />
-            <e p="SocketServer.cs" t="Include" />
-          </e>
-          <e p="Live2DScript" t="Include">
-            <e p="GazeController.cs" t="Include" />
-          </e>
-          <e p="System" t="Include">
-            <e p="BluetoothCommunicator.cs" t="Include" />
-            <e p="Compressor.cs" t="Include" />
-            <e p="Cryptor.cs" t="Include" />
-            <e p="DataBank.cs" t="Include" />
-            <e p="ESP32BTCommunicator.cs" t="Include" />
-            <e p="MenuSystem.cs" t="Include" />
-            <e p="PythonExecutor.cs" t="Include" />
-            <e p="SaveData.cs" t="Include" />
-            <e p="SaveSystem.cs" t="Include" />
-            <e p="StateSystem.cs" t="Include" />
-            <e p="TranslucentSystem.cs" t="Include" />
-            <e p="TransparentSystem.cs" t="Include" />
-          </e>
-          <e p="UI" t="Include">
-            <e p="ESP32Communicator.cs" t="Include" />
-            <e p="iTweenExtention.cs" t="Include" />
-            <e p="MenuBubble.cs" t="Include" />
-            <e p="MenuNode.cs" t="Include" />
-            <e p="Node.cs" t="Include" />
-            <e p="SpeechBubble.cs" t="Include" />
-            <e p="SpeechBubbleMaker.cs" t="Include" />
           </e>
         </e>
       </e>

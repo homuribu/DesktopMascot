@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1894260-31ba-40cc-9e69-9bb933397ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/色々/Communication/SocketServer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/色々/Communication/SocketServer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Live2D.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Live2D.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesktopMascot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/色々/System/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/System/SaveSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,9 +21,9 @@
       <option value="$PROJECT_DIR$/Assets/色々/Communication/SockerServer.cs" />
       <option value="$PROJECT_DIR$/Assets/色々/Communication/SocketServer.cs" />
       <option value="$PROJECT_DIR$/Assets/色々/System/PythonExecutor.cs" />
-      <option value="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/色々/UI/MenuNode.cs" />
       <option value="$PROJECT_DIR$/Assets/色々/UI/SpeechBubbleMaker.cs" />
+      <option value="$PROJECT_DIR$/Assets/色々/System/MenuSystem.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1m6CqL9A3mAcn3VmAgdIcMpctep" />
@@ -73,6 +70,7 @@
       <workItem from="1608806585242" duration="6617000" />
       <workItem from="1608815242490" duration="4286000" />
       <workItem from="1608819921823" duration="11247000" />
+      <workItem from="1608944305309" duration="1948000" />
     </task>
     <servers />
   </component>

@@ -168,8 +168,8 @@ public class SpeechBubbleMaker : MonoBehaviour
     }
     void RandomGenerate()
     {
-        //var strList = new List<string>() { "おはよう！", "元気?", "やっほー", "おなかすいたー", "がんばれー", "ご飯食べた?", "ねーねー" };
-        var strList = new List<string>() { "Keep it up!", "You can do it!", "Go for it!" };
+        var strList = new List<string>() { "おはよう！", "元気?", "やっほー", "おなかすいたー", "がんばれー", "ご飯食べた?", "ねーねー" };
+    // var strList = new List<string>() { "Keep it up!", "You can do it!", "Go for it!" };
         var _index = UnityEngine.Random.Range(0, strList.Count);
         while (strIndex == _index)
         {

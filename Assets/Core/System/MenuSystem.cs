@@ -83,6 +83,24 @@ public class MenuSystem : MonoBehaviour
 
         });
         setting.AddChild(set_deactivate);
+        
+        Node set_randspeak = new Node("RandSpeak:OFF", 1);
+        bool on3 = false;
+        set_randspeak.AddCallback(() =>
+        {
+            on3 = !on3;
+            if (on3)
+            {
+                maker.StopSpeak();
+            }
+            else
+            {
+                maker.StartSpeak();
+            }
+            set_randspeak.Text = on3 ? "RandSpeak:ON" : "RandSpeak:OFF";
+
+        });
+        setting.AddChild(set_randspeak);
 
         Node sensor = new Node("Sensor", 1);
         root.AddChild(sensor);
