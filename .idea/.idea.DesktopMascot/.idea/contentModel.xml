@@ -12,8 +12,10 @@
           <e p="Communication" t="Include">
             <e p="ESP32BTCommunicator.cs" t="Include" />
             <e p="ESP32Communicator.cs" t="Include" />
+            <e p="HttpCommunicator.cs" t="Include" />
             <e p="SocketClient.cs" t="Include" />
             <e p="SocketServer.cs" t="Include" />
+            <e p="SwitchbotCommunicator.cs" t="Include" />
           </e>
           <e p="Live2DScript" t="Include">
             <e p="GazeController.cs" t="Include" />
@@ -348,6 +350,16 @@
             <e p="UnityExtensions.cs" t="Include" />
             <e p="UnityPath.cs" t="Include" />
             <e p="Validation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="misc" t="Include">
+          <e p="UnityURPToonLitShaderExample" t="Include">
+            <e p="NiloInvLerpRemap.hlsl" t="Include" />
+            <e p="NiloOutlineUtil.hlsl" t="Include" />
+            <e p="NiloZOffset.hlsl" t="Include" />
+            <e p="SimpleURPToonLitOutlineExample.shader" t="Include" />
+            <e p="SimpleURPToonLitOutlineExample_LightingEquation.hlsl" t="Include" />
+            <e p="SimpleURPToonLitOutlineExample_Shared.hlsl" t="Include" />
           </e>
         </e>
         <e p="Packages" t="Include">

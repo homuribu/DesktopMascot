@@ -97,8 +97,8 @@ namespace Core.System
             UpdateData(saveData);
             Store(saveData);
             Debug.Log("OnQuit x: " + saveData.x + "y: " + saveData.y + "w: " + saveData.width + "h: " + saveData.height);
-            originSaveData.isTopmost = false;
-            SetWindow(originSaveData);
+            // originSaveData.isTopmost = false;
+            // SetWindow(originSaveData);
 
         }
     }

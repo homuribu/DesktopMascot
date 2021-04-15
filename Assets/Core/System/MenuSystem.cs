@@ -50,50 +50,41 @@ namespace Core.System
             maker = GameObject.FindObjectOfType<SpeechBubbleMaker>();
             uniwinc = GameObject.FindObjectOfType<UniWindowController>();
             Node root = new MenuNode();
-            Node setting = new Node("Setting", 1);
+            Node setting = new Node("せってい", 1);
             root.AddChild(setting);
-            Node set_transparent = new Node("透過切り替え", 1);
-            set_transparent.AddCallback(() =>
-            {
-                uniwinc.isTransparent = !uniwinc.isTransparent;
-            });
-            setting.AddChild(set_transparent);
-
-            bool on = uniwinc.isTopmost;
-            Node set_topmost = new Node("Topmost:ON ", 1);
-
+            var setTransparent = new SwitchNode("背景透過中だよ","背景透過してないよ",  1,uniwinc.isTransparent );
             setting.AddCallback(() =>
             {
-                on = uniwinc.isTopmost;
-                set_topmost.Text = on ? "Topmost:ON" : "Topmost:OFF";
-
+                setTransparent.ON = uniwinc.isTransparent;
             });
-            set_topmost.AddCallback(() =>
+            setTransparent.AddCallback(() =>
             {
-                on = !on;
-                set_topmost.Text = on ? "Topmost:ON" : "Topmost:OFF";
-                uniwinc.isTopmost = on;
+                uniwinc.isTransparent = setTransparent.ON;
             });
+            setting.AddChild(setTransparent);
 
-            setting.AddChild(set_topmost);
-
-            Node set_deactivate = new Node("半透明:OFF", 1);
-            bool on2 = false;
-            set_deactivate.AddCallback(() =>
+            var setTopmost = new SwitchNode("最前面固定するよ","最前面固定しないよ", 1,uniwinc.isTopmost );
+            setting.AddCallback(() =>
             {
-                on2 = !on2;
-                canvasGroup.alpha = on2 ? 0.5f : 1.0f;
-                set_deactivate.Text = on2 ? "半透明:ON" : "半透明:OFF";
-
+                setTopmost.ON = uniwinc.isTopmost;
             });
-            setting.AddChild(set_deactivate);
+            setTopmost.AddCallback(() =>
+            {
+                uniwinc.isTopmost = setTopmost.ON;
+            });
+            setting.AddChild(setTopmost);
+
+            var setTranslucent = new SwitchNode("半透明だよ","半透明じゃないよ", 1, false);
+            setTranslucent.AddCallback(() =>
+            {
+                canvasGroup.alpha = setTranslucent.ON ? 0.5f : 1.0f;
+            });
+            setting.AddChild(setTranslucent);
         
-            Node set_randspeak = new Node("RandSpeak:OFF", 1);
-            bool on3 = false;
-            set_randspeak.AddCallback(() =>
+            var setRandspeak = new SwitchNode("話すよー","黙ってるよ...",  + 1);
+            setRandspeak.AddCallback(() =>
             {
-                on3 = !on3;
-                if (on3)
+                if (setRandspeak.ON)
                 {
                     maker.StopSpeak();
                 }
@@ -101,13 +92,23 @@ namespace Core.System
                 {
                     maker.StartSpeak();
                 }
-                set_randspeak.Text = on3 ? "RandSpeak:ON" : "RandSpeak:OFF";
-
             });
-            setting.AddChild(set_randspeak);
+            setting.AddChild(setRandspeak);
+            Node remocon = new Node("リモコン", 1);
+            // root.AddChild(remocon);
+            Node right_off = new Node("明かりを消す?", 1);
+            right_off.AddCallback(() =>
+            {
+                HttpCommunicator hc = new HttpCommunicator();
+                var url = "https://api.switch-bot.com/v1.0/devices/01-202101071744-43895891/commands";
+                // hc.GetHttpAsync()
+            });
+            
+            
+            
 
             Node sensor = new Node("Sensor", 1);
-            root.AddChild(sensor);
+            // root.AddChild(sensor);
             PythonExecutor pyexe = GameObject.FindObjectOfType<PythonExecutor>();
         
             socketServer.AddCommand("speak", mes =>
@@ -141,43 +142,6 @@ namespace Core.System
                     pyexe.p_WriteInputData("echo Message from C#");
                 });
             });
-
-
-            /*
-        ESP32Communicator e32c = new ESP32Communicator();
-        root.AddChild(sensor);
-        Node temperature = new Node("--℃", 1);
-        Node humidity = new Node("--％", 1);
-        Node pressure = new Node("----Pa", 1);
-
-        sensor.AddChild(humidity);
-        sensor.AddChild(temperature);
-        sensor.AddChild(pressure);
-        */
-            //ESP32Communicator e32c = new ESP32Communicator();
-
-            /*
-        sensor.AddCallback(() =>
-        {
-            var _airdata = e32c.GetAirData();
-            _airdata.Subscribe(_data =>
-            {
-                AirData data = JsonUtility.FromJson<AirData>(_data);
-                temperature.Text = data.temp+"℃";
-                humidity.Text = data.hum +"％";
-                pressure.Text = data.press+ "Pa";
-            });
-            var _airdata = e32c.GetAirData();
-            _airdata.Subscribe(_data =>
-            {
-                AirData data = JsonUtility.FromJson<AirData>(_data);
-                temperature.Text = data.temp + "℃";
-                humidity.Text = data.hum + "％";
-                pressure.Text = data.press + "Pa";
-            });
-        });
-        */
-            //Node test2 = new Node("<quad material=1 size=20 x=0.1 y=0.1 width=0.5 height=0.5>", 1);
             Node clock = new Node("Clock", 1);
             root.AddChild(clock);
 
@@ -229,6 +193,23 @@ namespace Core.System
 
             });
             tool.AddChild(socketClientTest);
+            
+            Node shutdown = new Node("Shutdown");
+            shutdown.AddCallback(() =>
+            {
+                #if UNITY_EDITOR
+                  UnityEditor.EditorApplication.isPlaying = false;
+                #elif UNITY_STANDALONE
+                  UnityEngine.Application.Quit();
+                #endif
+            });
+            tool.AddChild(shutdown);
+            Node speaktest = new Node("speaktest");
+            tool.AddChild(speaktest);
+            Node title1 = new Node("精密計測工学2\n レポート");
+            speaktest.AddChild(title1);
+            // Node title2 = new Node("精密計測工学2");
+            // speaktest.AddChild(title2);
 
             root.GenerateBubble(2);
         }
